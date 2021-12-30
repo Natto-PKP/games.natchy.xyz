@@ -12,4 +12,7 @@ server.use(express.static(path.join(__dirname, 'static')));
 /** routers */
 server.use('/', require('./routers/index'));
 
+/** 404 */
+server.use((req, res) => res.status(404).render('error', { code: 404 }));
+
 server.listen(5050);
