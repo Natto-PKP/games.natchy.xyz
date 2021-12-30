@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
+    "start:prod": "npm i && npm start",
     "dev": "node-dev --no-notify server.js"
   },
   "keywords": [],
