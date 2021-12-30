@@ -34,7 +34,7 @@ const game = {
      * Check win of each turn
      * @returns
      */
-    checkTurn: async () => {
+    checkTurn: () => {
       const board = document.getElementById('board');
       const ceils = board.querySelectorAll('td');
 
@@ -68,7 +68,7 @@ const game = {
       target.innerHTML = spans.player;
 
       //? Check player turn
-      await game.controllers.checkTurn();
+      game.controllers.checkTurn();
       if (game.cache.win) return;
 
       //? Bot action
@@ -120,7 +120,7 @@ const game = {
         ceil.innerHTML = spans.bot;
 
         //? Check bot turn
-        await game.controllers.checkTurn();
+        game.controllers.checkTurn();
         if (game.cache.win) return;
 
         //? Bot action
