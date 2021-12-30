@@ -72,68 +72,72 @@ const game = {
       if (game.cache.win) return;
 
       //? Bot action
-      game.cache.turn = !game.cache.turn;
+      game.cache.turn = false;
       document.getElementById('statut').innerHTML = 'Le robot joue son tour';
-      game.controllers.auto();
+      await game.controllers.auto();
     },
 
     /**
      * Bot turn
      */
-    auto: () => {
+    auto: async () => {
       //? Await 800ms to simulate bot turn
-      setTimeout(async () => {
-        const board = document.getElementById('board');
+      return new Promise(resolve => {
+        setTimeout(async () => {
+          const board = document.getElementById('board');
 
-        /**
-         * Convert NodeList to Array
-         * @type { HTMLTableCellElement[] }
-         */
-        const ceils_array = [];
-        board.querySelectorAll('td').forEach(ceil => ceils_array.push(ceil));
-        const empty_ceils_array = ceils_array.filter(ceil => !ceil.classList.contains('ceil--disable'));
+          /**
+           * Convert NodeList to Array
+           * @type { HTMLTableCellElement[] }
+           */
+          const ceils_array = [];
+          board.querySelectorAll('td').forEach(ceil => ceils_array.push(ceil));
+          const empty_ceils_array = ceils_array.filter(ceil => !ceil.classList.contains('ceil--disable'));
 
-        /**
-         * Interactives ceils
-         * @type { HTMLTableCellElement[] }
-         */
-        const ceils = combinaisons.reduce((acc, combinaison) => {
-          const results = acc;
+          /**
+           * Interactives ceils
+           * @type { HTMLTableCellElement[] }
+           */
+          const ceils = combinaisons.reduce((acc, combinaison) => {
+            const results = acc;
 
-          const combinaison_ceils = combinaison.map(x => ceils_array[x]);
-          const turns = [spans.player, spans.bot];
-          for (const turn of turns) {
-            const combinaison_ceils_to_turn = combinaison_ceils.filter(ceil => ceil.innerHTML === turn);
-            if (combinaison_ceils_to_turn.length < 2) continue;
-            const result = combinaison_ceils.find(ceil => !turns.includes(ceil.innerHTML));
-            if (result) results.push(result);
-          }
+            const combinaison_ceils = combinaison.map(x => ceils_array[x]);
+            const turns = [spans.player, spans.bot];
+            for (const turn of turns) {
+              const combinaison_ceils_to_turn = combinaison_ceils.filter(ceil => ceil.innerHTML === turn);
+              if (combinaison_ceils_to_turn.length < 2) continue;
+              const result = combinaison_ceils.find(ceil => !turns.includes(ceil.innerHTML));
+              if (result) results.push(result);
+            }
 
-          return results;
-        }, []);
+            return results;
+          }, []);
 
-        const ceil = ceils.length
-          ? ceils[Math.floor(Math.random() * ceils.length)]
-          : empty_ceils_array[Math.floor(Math.random() * empty_ceils_array.length)];
+          const ceil = ceils.length
+            ? ceils[Math.floor(Math.random() * ceils.length)]
+            : empty_ceils_array[Math.floor(Math.random() * empty_ceils_array.length)];
 
-        ceil.classList.add('ceil--disable');
-        ceil.innerHTML = spans.bot;
+          ceil.classList.add('ceil--disable');
+          ceil.innerHTML = spans.bot;
 
-        //? Check bot turn
-        game.controllers.checkTurn();
-        if (game.cache.win) return;
+          //? Check bot turn
+          game.controllers.checkTurn();
+          if (game.cache.win) return;
 
-        //? Bot action
-        game.cache.turn = !game.cache.turn;
-        document.getElementById('statut').innerHTML = "C'est à vous de jouer";
-      }, 1400);
+          //? Bot action
+          game.cache.turn = true;
+          document.getElementById('statut').innerHTML = "C'est à vous de jouer";
+
+          resolve(); // End of promesse
+        }, 1400);
+      });
     },
   },
 
   /**
    * Start a new game
    */
-  play: () => {
+  play: async () => {
     game.cache = { turn: false };
 
     const board = document.getElementById('board');
@@ -141,7 +145,7 @@ const game = {
 
     game.cache.turn = Math.round(Math.random()) ? true : false;
     document.getElementById('statut').innerHTML = game.cache.turn ? "C'est à vous de jouer" : 'Le robot joue son tour';
-    if (!game.cache.turn) game.controllers.auto();
+    if (!game.cache.turn) await game.controllers.auto();
   },
 
   /**
