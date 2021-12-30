@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <%- include('partials/head'); %>
+
+    <!-- Game ressources -->
+    <% const files = game.files; if (Array.isArray(files) && files.length) { if (files.includes('css')) { %>
+    <link rel="stylesheet" href="/css/<%= game.slug %>.css" />
+    <% }; if (files.includes('js')) { %>
+    <script src="js/<%= game.slug %>.js"></script>
+    <% }; }; %>
+  </head>
+
+  <body>
+    <header><%- include('partials/header'); %></header>
+
+    <main>
+      <!-- Game section -->
+      <section id="game"></section>
+    </main>
+  </body>
+</html>

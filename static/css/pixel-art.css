@@ -1,0 +1,157 @@
+#game {
+  width: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+/*! Form */
+#form-container {
+  position: sticky;
+  min-width: 256px;
+  width: 256px;
+  padding: 4px;
+  border: var(--color-yellow) 1px solid;
+}
+
+#form-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding: 16px 8px;
+  background-color: white;
+}
+
+#form-container fieldset {
+  width: 100%;
+}
+
+/*? Form - Size */
+#board-size {
+  display: flex;
+  justify-content: center;
+}
+
+#board-size > div {
+  width: auto;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  background-color: var(--color-black);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#board-size > div > label {
+  padding: 0 0.4rem;
+  font-size: 0.8rem;
+}
+
+#board-size input {
+  width: 2rem;
+  margin: 0 2px;
+  padding: 2px;
+  background-color: transparent;
+  border: none;
+  color: white;
+
+  transition: 0.1s ease-out;
+}
+
+#board-size input:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
+#board-size input:focus {
+  outline: none;
+}
+
+/*? Colors picker */
+#colors-picker-container legend {
+  width: 100%;
+  padding: 0.8rem 0 0.4rem;
+  border-top: solid 1px var(--color-black);
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+#colors-picker {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.color {
+  height: 28px;
+  width: 28px;
+  cursor: pointer;
+
+  transition: 0.1s ease-out;
+}
+
+.color:hover,
+.color--selected {
+  transform: scale(1.25);
+}
+
+/*? Options */
+#options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+#options button {
+  padding: 0.4rem 0.8rem;
+  background-color: var(--color-black);
+  border: 1px transparent solid;
+  color: white;
+  cursor: pointer;
+
+  transition: 0.1s ease-out;
+}
+
+#options button:hover {
+  color: black;
+  background-color: transparent;
+  border-color: var(--color-black);
+}
+
+#options #reset-button {
+  background-color: var(--color-red);
+}
+
+#options #reset-button:hover {
+  background-color: transparent;
+  border-color: var(--color-red);
+}
+
+/*? Board */
+#board-container {
+  margin: auto;
+  overflow: auto;
+}
+
+#board td {
+  min-width: 20px;
+  width: 20px;
+  min-height: 20px;
+  height: 20px;
+  background-color: white;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+#board.ceils--grid td {
+  border-color: var(--color-black);
+}
+
+#board.ceils--black td {
+  background-color: var(--color-black);
+  border-color: white;
+}

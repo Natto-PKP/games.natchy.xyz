@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <%- include('partials/head') %>
+  </head>
+
+  <body>
+    <header><%- include('partials/header') %></header>
+
+    <main>
+      <section id="games-list">
+        <h2>Liste des minis-jeux</h2>
+
+        <ul>
+          <% for (const g of games) { %>
+          <li>
+            <a href="/<%= g.slug %>">
+              <h3><%= g.name %></h2>
+              <aside><%= g.description %></aside>
+            </a>
+          </li>
+          <% } %> 
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

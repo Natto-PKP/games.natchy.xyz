@@ -1,0 +1,22 @@
+<img src="/images/nat.png" alt="Image de profile de Nat'" />
+
+<div>
+  <div id="title">
+    <h1>
+      <a href="/">Nat' games</a>
+    </h1>
+  </div>
+
+  <nav>
+    <ul>
+      <% const games = locals.games.sort(() => Math.random() - 0.5) %>
+
+      <!-- 3 Randoms games -->
+      <% for (const g of games) { %>
+      <li>
+        <a href="/<%= g.slug %>"><%= g.name %></a>
+      </li>
+      <% } %>
+    </ul>
+  </nav>
+</div>

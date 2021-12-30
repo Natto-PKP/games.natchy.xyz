@@ -1,0 +1,155 @@
+html {
+  --color-black: #2b2b2b;
+  --color-yellow: #fefa81;
+  --color-red: #ef3434;
+  --font-text: sans-serif;
+}
+
+html,
+button {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0 2rem;
+  background-color: var(--color-black);
+}
+
+a {
+  text-decoration: none;
+}
+
+/*? Input */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/*? Header */
+header {
+  margin: 1rem 0 4rem;
+  padding: 4px;
+  display: flex;
+  border: var(--color-yellow) 1px solid;
+}
+
+header > div {
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+}
+
+header a {
+  color: var(--color-black);
+}
+
+header #title {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+header img {
+  width: 6rem;
+  display: block;
+  border-right: 4px solid var(--color-black);
+}
+
+header h1 {
+  font-size: 3rem;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+nav ul {
+  display: flex;
+  gap: 0.4rem;
+}
+
+nav li a {
+  padding: 0.4rem 0.8rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+
+  transition: 0.2s ease-out;
+}
+
+nav li a:hover {
+  background-color: var(--color-black);
+  color: white;
+}
+
+/*? Main */
+main {
+  margin: 0 auto;
+}
+
+#games-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#games-list h2 {
+  margin-bottom: 1.6rem;
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: white;
+}
+
+#games-list ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#games-list li {
+  list-style: none;
+}
+
+#games-list li a::before {
+  content: '';
+  width: 2px;
+  height: 1.2rem;
+  background-color: transparent;
+}
+
+#games-list li a {
+  display: flex;
+  align-items: center;
+  padding: 0.4rem;
+  gap: 1rem;
+  color: white;
+}
+
+#games-list li a,
+#games-list li a::before {
+  transition: 0.1s ease-out;
+}
+
+#games-list li a:hover {
+  transform: scale(1.02);
+}
+
+#games-list li a:hover::before {
+  background-color: var(--color-yellow);
+}
+
+#games-list li a h3 {
+  font-size: 1.3rem;
+}
+
+#games-list li a aside {
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  opacity: 0.5;
+}

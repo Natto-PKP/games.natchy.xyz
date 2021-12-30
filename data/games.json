@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Pixel Art",
+    "slug": "pixel-art",
+    "description": "Cliquez sur des pixels pour faire des pixels !",
+    "files": ["css", "js"]
+  },
+  {
+    "name": "Tic Tac Toe",
+    "slug": "tic-tac-toe",
+    "description": "Jouez une petite partie contre une IA",
+    "files": ["css", "js"]
+  },
+  {
+    "name": "Démineur",
+    "slug": "demineur",
+    "description": "Le fameux classique",
+    "files": ["css", "js"]
+  }
+]

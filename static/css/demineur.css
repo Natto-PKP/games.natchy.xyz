@@ -1,0 +1,81 @@
+#game {
+  display: flex;
+  justify-content: center;
+}
+
+#stats {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 0.5rem 0;
+}
+
+#stats div {
+  display: flex;
+  gap: 6px;
+  padding: 0.4rem 0.6rem;
+  background-color: var(--color-black);
+  border-radius: 4px;
+  color: rgb(160, 160, 160);
+}
+
+#stats div span[id] {
+  font-size: 1.1rem;
+  color: white;
+}
+
+#game-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.8rem;
+  background-color: white;
+}
+
+#board td {
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: rgb(220, 220, 220);
+  border: 1px solid black;
+
+  transition: 0.1s ease-out;
+}
+
+#board td.ceil--block {
+  background-color: var(--color-black);
+  color: white;
+  cursor: pointer;
+}
+
+#board td.ceil--bomb {
+  background-color: var(--color-red);
+}
+
+#game aside {
+  font-size: 0.7rem;
+}
+
+#game ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+#game ul button {
+  padding: 0.2rem 0.6rem;
+  background-color: var(--color-black);
+  border: 1px solid transparent;
+  color: white;
+  cursor: pointer;
+
+  transition: 0.1s ease-out;
+}
+
+#game ul button:hover {
+  background-color: transparent;
+  border-color: var(--color-black);
+  color: var(--color-black);
+}
