@@ -16,5 +16,11 @@
     "slug": "demineur",
     "description": "Le fameux classique",
     "files": ["css", "js"]
+  },
+  {
+    "name": "Pacman",
+    "slug": "pacman",
+    "description": "Venez goumer les fantomes",
+    "files": ["css", "js"]
   }
 ]

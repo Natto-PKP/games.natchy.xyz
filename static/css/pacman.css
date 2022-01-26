@@ -1,0 +1,215 @@
+#game {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#game main {
+  display: flex;
+  justify-content: center;
+}
+
+/*! Board */
+#board {
+  /* background-color: var(--color-black); */
+}
+
+#board td {
+  position: relative;
+  height: 19px;
+  width: 19px;
+}
+
+#board td::before {
+  position: absolute;
+}
+
+/*! Pacman */
+.ceil--pacman {
+}
+
+/*! Monster */
+.ceil--monster {
+}
+
+/*! Empty */
+.ceil--empty {
+}
+
+/*! Gums */
+.ceil--gum::before {
+  content: '';
+  top: 7px;
+  left: 7px;
+  width: 5px;
+  height: 5px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+@keyframes super-gum-tic {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.ceil--super-gum::before {
+  content: '';
+  top: 4px;
+  left: 4px;
+  width: 11px;
+  height: 11px;
+  background-color: white;
+  border-radius: 50%;
+
+  animation: 0.15s linear 1s infinite alternate super-gum-tic;
+}
+
+/*! Blocks */
+.ceil--block::before {
+  content: '';
+  border-color: var(--color-yellow);
+}
+
+.ceil--outline::before {
+  content: '';
+  border-color: white;
+}
+
+.ceil--fence::before {
+  content: '';
+  border-color: white;
+}
+
+.ceil--block--empty {
+}
+
+.ceil--vertical::before {
+  left: 9px;
+  height: 19px;
+  border-right-width: 1px;
+  border-right-style: solid;
+}
+
+.ceil--vertical--left::before {
+  left: 0;
+  width: 9px;
+  height: 19px;
+  border-right-width: 1px;
+  border-right-style: solid;
+}
+
+.ceil--vertical--right::before {
+  right: 0;
+  width: 9px;
+  height: 19px;
+  border-left-width: 1px;
+  border-left-style: solid;
+}
+
+.ceil--horizontal::before {
+  top: 9px;
+  width: 19px;
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+
+.ceil--horizontal--top::before {
+  top: 0;
+  width: 19px;
+  height: 9px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+.ceil--horizontal--bottom::before {
+  bottom: 0;
+  width: 19px;
+  height: 9px;
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+
+.ceil--corner::before {
+  content: '';
+  width: 9px;
+  height: 9px;
+}
+
+.ceil--corner--center::before {
+  width: 8px;
+  height: 8px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+.ceil--corner--top-left::before {
+  top: 0;
+  left: 0;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-bottom-right-radius: 4px;
+}
+
+.ceil--corner--top-right::before {
+  top: 0;
+  right: 0;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-bottom-left-radius: 4px;
+}
+
+.ceil--corner--bottom-right::before {
+  bottom: 0;
+  right: 0;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-top-left-radius: 4px;
+}
+
+.ceil--corner--bottom-left::before {
+  bottom: 0;
+  left: 0;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-top-right-radius: 4px;
+}
+
+/*! Door */
+.ceil--door::before {
+  content: '';
+  border-color: var(--color-yellow);
+
+  transition: 0.1s ease-out;
+}
+
+.ceil--door--open::before {
+  opacity: 0.4;
+}
+
+.ceil--door--vertical::before {
+  left: 9px;
+  height: 19px;
+  border-right-width: 1px;
+  border-right-style: solid;
+}
+
+.ceil--door--horizontal::before {
+  top: 9px;
+  width: 19px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}

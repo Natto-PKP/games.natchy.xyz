@@ -31,14 +31,14 @@ input[type='number'] {
 }
 
 /*? Header */
-header {
+#header {
   margin: 1rem 0 4rem;
   padding: 4px;
   display: flex;
   border: var(--color-yellow) 1px solid;
 }
 
-header > div {
+#header > div {
   width: 100%;
   padding: 1rem 2rem;
   display: flex;
@@ -47,34 +47,34 @@ header > div {
   background-color: white;
 }
 
-header a {
+#header a {
   color: var(--color-black);
 }
 
-header #title {
+#header #title {
   display: flex;
   align-items: center;
   gap: 28px;
 }
 
-header img {
+#header img {
   width: 6rem;
   display: block;
   border-right: 4px solid var(--color-black);
 }
 
-header h1 {
+#header h1 {
   font-size: 3rem;
   text-transform: capitalize;
   font-weight: bold;
 }
 
-nav ul {
+#header nav ul {
   display: flex;
   gap: 0.4rem;
 }
 
-nav li a {
+#header nav li a {
   padding: 0.4rem 0.8rem;
   font-size: 1.4rem;
   font-weight: bold;
@@ -82,7 +82,7 @@ nav li a {
   transition: 0.2s ease-out;
 }
 
-nav li a:hover {
+#header nav li a:hover {
   background-color: var(--color-black);
   color: white;
 }
